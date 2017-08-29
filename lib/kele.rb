@@ -13,6 +13,11 @@ include HTTParty
         puts "incorrect username or password"
     end
   end
+  
+  def get_me
+      response = self.class.get('https://www.bloc.io/api/v1/users/me', headers: { "authorization" => @auth_token })
+      JSON.parse(response.body)
+  end
 
 end
 
